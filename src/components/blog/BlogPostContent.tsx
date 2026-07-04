@@ -11,7 +11,7 @@ export default function BlogPostContent() {
   const [post, setPost] = useState(null);
   const [isUploaded, setIsUploaded] = useState(false);
   const [refresh, setRefresh] = useState(0);
-  const slugStr = slug;
+  const slugStr = slug as string;
 
   useEffect(() => {
     const fromStatic = getPost(slugStr);
@@ -38,8 +38,8 @@ export default function BlogPostContent() {
     return (
       <main className="min-h-screen pt-24 pb-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-          <p className="text-zinc-400 dark:text-zinc-500 mb-4">文章不存在</p>
-          <Link href="/blog" className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 underline">返回博客</Link>
+          <p className="text-zinc-400 dark:text-zinc-500 mb-4">鏂囩珷涓嶅瓨鍦?/p>
+          <Link href="/blog" className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 underline">杩斿洖鍗氬</Link>
         </div>
       </main>
     );
@@ -54,13 +54,13 @@ export default function BlogPostContent() {
               <svg className="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
-              返回博客
+              杩斿洖鍗氬
             </Link>
             {isUploaded && (
               <button onClick={handleDelete}
                 className="text-xs text-zinc-400 dark:text-zinc-500 hover:text-red-500 dark:hover:text-red-400 transition-colors"
               >
-                删除
+                鍒犻櫎
               </button>
             )}
           </div>

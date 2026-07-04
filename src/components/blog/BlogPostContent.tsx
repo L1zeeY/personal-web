@@ -8,7 +8,7 @@ import { getUploadedPosts, deleteUploadedPost } from "@/lib/blogStore";
 
 export default function BlogPostContent() {
   const { slug } = useParams();
-  const [post, setPost] = useState(null);
+  const [post, setPost] = useState<any>(null);
   const [isUploaded, setIsUploaded] = useState(false);
   const [refresh, setRefresh] = useState(0);
   const slugStr = slug as string;

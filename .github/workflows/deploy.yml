@@ -6,6 +6,7 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 jobs:
   deploy:
@@ -17,12 +18,8 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npm run build
-      - name: Push to gh-pages
-        run: |
-          cd ./out
-          git init
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add -A
-          git commit -m "deploy: ${{ github.sha }}"
-          git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:gh-pages
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          force_orphan: true

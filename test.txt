@@ -1,0 +1,10 @@
+﻿python.exe :   File "<string>", line 5
+At line:2 char:1
++ & "C:\Users\leezy\.cache\codex-runtimes\codex-primary-runtime\depende ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (  File "<string>", line 5:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+    content = '''export interface Project {
+              ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 21)

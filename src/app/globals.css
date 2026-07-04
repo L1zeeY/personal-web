@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+/* ===== Theme color variables ===== */
+:root {
+  --bg-body: #fafafa;
+  --bg-surface: #ffffff;
+  --bg-surface-secondary: #f4f4f5;
+  --bg-inverse: #18181b;
+  --bg-accent: #f4f4f5;
+
+  --text-primary: #18181b;
+  --text-secondary: #71717a;
+  --text-muted: #a1a1aa;
+  --text-body: #52525b;
+  --text-on-card: #3f3f46;
+  --text-inverse: #fafafa;
+
+  --border-default: #e4e4e7;
+  --border-hover: #d4d4d8;
+
+  --nav-bg: rgba(255, 255, 255, 0.8);
+}
+
+.dark {
+  --bg-body: #09090b;
+  --bg-surface: #18181b;
+  --bg-surface-secondary: #27272a;
+  --bg-inverse: #f4f4f5;
+  --bg-accent: #27272a;
+
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --text-body: #d4d4d8;
+  --text-on-card: #e4e4e7;
+  --text-inverse: #18181b;
+
+  --border-default: #3f3f46;
+  --border-hover: #52525b;
+
+  --nav-bg: rgba(9, 9, 11, 0.8);
+}
+
+/* ===== Register as Tailwind theme tokens ===== */
+@theme inline {
+  --color-bg-body: var(--bg-body);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-surface-secondary: var(--bg-surface-secondary);
+  --color-bg-inverse: var(--bg-inverse);
+  --color-bg-accent: var(--bg-accent);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-body: var(--text-body);
+  --color-text-on-card: var(--text-on-card);
+  --color-text-inverse: var(--text-inverse);
+  --color-border-default: var(--border-default);
+  --color-border-hover: var(--border-hover);
+  --color-nav-bg: var(--nav-bg);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ===== Dark mode variant ===== */
+@custom-variant dark (&:is(.dark *));
+
+/* ===== Color scheme hint for browser ===== */
+:root { color-scheme: light; }
+.dark { color-scheme: dark; }
+
+/* ===== Base styles ===== */
+body {
+  background-color: var(--bg-body);
+  color: var(--text-body);
+}
+
+/* ===== Theme-aware utility overrides ===== */
+.theme-surface { background-color: var(--bg-surface); }
+.theme-surface-secondary { background-color: var(--bg-surface-secondary); }
+.theme-text { color: var(--text-primary); }
+.theme-text-secondary { color: var(--text-secondary); }
+.theme-text-muted { color: var(--text-muted); }
+.theme-border { border-color: var(--border-default); }
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-hover);
+  border-radius: 4px;
+}
+
+/* Selection */
+::selection {
+  background: #d4d4d8;
+  color: #18181b;
+}
+.dark ::selection {
+  background: #3f3f46;
+  color: #fafafa;
+}
+
+/* ===== Print styles ===== */
+@media print {
+  header, footer, .fixed { display: none !important; }
+  body { background: white !important; color: black !important; }
+  main { padding-top: 0 !important; }
+  @page { margin: 1.5cm; }
+}
